@@ -1,0 +1,59 @@
+-- Create the ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ArpitPlayzHub"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Main Frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 300, 0, 180)
+mainFrame.Position = UDim2.new(0.5, -150, 0.5, -90)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+mainFrame.BorderSizePixel = 0
+mainFrame.Parent = screenGui
+
+-- UICorner for smooth edges
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)
+corner.Parent = mainFrame
+
+-- Title Label
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 40)
+title.Position = UDim2.new(0, 0, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "ArpitPlayz Hub"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.GothamBold
+title.TextScaled = true
+title.Parent = mainFrame
+
+-- Toggle Button
+local toggle = Instance.new("TextButton")
+toggle.Size = UDim2.new(0.7, 0, 0, 50)
+toggle.Position = UDim2.new(0.15, 0, 0.5, -25)
+toggle.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+toggle.Text = "2x Luck: OFF"
+toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+toggle.Font = Enum.Font.Gotham
+toggle.TextScaled = true
+toggle.AutoButtonColor = false
+toggle.Parent = mainFrame
+
+-- Rounded toggle button
+local toggleCorner = Instance.new("UICorner")
+toggleCorner.CornerRadius = UDim.new(0, 10)
+toggleCorner.Parent = toggle
+
+-- Toggle functionality
+local isOn = false
+toggle.MouseButton1Click:Connect(function()
+	isOn = not isOn
+	if isOn then
+		toggle.Text = "2x Luck: ON"
+		toggle.BackgroundColor3 = Color3.fromRGB(60, 100, 60) -- green shade
+	else
+		toggle.Text = "2x Luck: OFF"
+		toggle.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	end
+end)
